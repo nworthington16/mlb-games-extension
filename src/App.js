@@ -26,8 +26,26 @@ class App extends Component {
 		this.state = {
 			view: views.GAMES,
 			mode: modes.DARK,
-			date: "",
+			date: new Date(),
 			games: []
+		}
+
+		this.handleDateChange = this.handleDateChange.bind(this);
+	}
+
+	handleDateChange(lr) {
+		if (lr === 'left') {
+			let newDate = this.state.date;
+			newDate.setDate(this.state.date.getDate() - 1);
+			this.setState({
+				date: newDate
+			});
+		} else if (lr === 'right') {
+			let newDate = this.state.date;
+			newDate.setDate(this.state.date.getDate() + 1);
+			this.setState({
+				date: newDate
+			});
 		}
 	}
 
@@ -38,7 +56,9 @@ class App extends Component {
 			<div className={cName}>
 				<div className="flexWrapper">
 					<div className="dateWrapper">
-						<DatePicker />
+						<DatePicker
+							date={this.state.date}
+							handleDateChange={this.handleDateChange} />
 					</div>
 					<div className="gamesWrapper">
 						<GamesContainer />

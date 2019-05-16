@@ -1,7 +1,7 @@
 .wrapper-dark {
 	width: 400px;
 	height: 600px;
-	background-color: #262652;
+	background-color: #000;
 	color: white;
 	padding: 10px;
 }
@@ -21,7 +21,8 @@
 }
 
 .dateWrapper {
-	background-color: #656588;
+	background-color: #2c2c46;
+	padding: 5px;
 }
 
 .gamesWrapper {

@@ -3,21 +3,44 @@ import './../style/DatePicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-const left = '<';
-const right = '>';
 
 class DatePicker extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.handleLeft = this.handleLeft.bind(this);
+        this.handleRight = this.handleRight.bind(this);
+    }
+
+    handleLeft() {
+        console.log('left')
+        this.props.handleDateChange('left');
+    }
+
+    handleRight() {
+        console.log('right')
+        this.props.handleDateChange('right');
+    }
+
     render() {
+        let currDate = ((this.props.date.getMonth() + 1)
+            + '-' + this.props.date.getDate()
+            + '-' + this.props.date.getFullYear());
         return (
             <div className="date-main">
-                <div className="left">
-                    <FontAwesomeIcon icon="chevron-left" />
+                <div className="left" onClick={this.handleLeft}>
+                    <FontAwesomeIcon
+                        icon="chevron-left"
+                        size="sm" />
                 </div>
                 <div className="date">
-                    05-15-2019
+                    {currDate}
                 </div>
-                <div className="right">
-                    <FontAwesomeIcon icon="chevron-right" />
+                <div className="right" onClick={this.handleRight}>
+                    <FontAwesomeIcon
+                        icon="chevron-right"
+                        size="sm" />
                 </div>
             </div>
         )

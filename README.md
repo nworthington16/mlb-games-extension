@@ -1,3 +1,9 @@
+## MLB Games Extention
+
+Google Chrome extension for viewing info about the day's MLB games in a popup!
+
+## React Automatic readme stuff
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
