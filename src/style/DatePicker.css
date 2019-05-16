@@ -1,0 +1,25 @@
+.left {
+    flex: 1;
+}
+
+.right {
+    flex: 1;
+}
+
+.left, .right, .date {
+    font-size: 180%;
+}
+
+.left:hover, .right:hover {
+    cursor: pointer;
+    background-color: rgb(98, 102, 138);
+}
+
+.date {
+    flex: 10;
+}
+
+.date-main {
+    display: flex;
+    flex-direction: row;
+}
