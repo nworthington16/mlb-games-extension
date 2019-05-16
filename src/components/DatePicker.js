@@ -14,12 +14,10 @@ class DatePicker extends Component {
     }
 
     handleLeft() {
-        console.log('left')
         this.props.handleDateChange('left');
     }
 
     handleRight() {
-        console.log('right')
         this.props.handleDateChange('right');
     }
 

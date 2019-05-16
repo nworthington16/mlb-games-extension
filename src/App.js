@@ -31,6 +31,30 @@ class App extends Component {
 		}
 
 		this.handleDateChange = this.handleDateChange.bind(this);
+		this.formatDate = this.formatDate.bind(this);
+	}
+
+	componentDidMount() {
+		this.fetchGames();
+	}
+
+	fetchGames() {
+		let currDate = `${this.formatDate(this.state.date)}`;
+		fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1,51&date=${currDate}`)
+			.then(res => res.json())
+			.then(json => {
+				this.setState({
+					games: json.dates[0].games
+				});
+			});
+	}
+
+	formatDate(date) {
+		return (
+			date.getFullYear() + '-'
+			+ (date.getMonth() + 1) + '-'
+			+ date.getDate()
+		);
 	}
 
 	handleDateChange(lr) {
@@ -39,12 +63,16 @@ class App extends Component {
 			newDate.setDate(this.state.date.getDate() - 1);
 			this.setState({
 				date: newDate
+			}, () => {
+				this.fetchGames();
 			});
 		} else if (lr === 'right') {
 			let newDate = this.state.date;
 			newDate.setDate(this.state.date.getDate() + 1);
 			this.setState({
 				date: newDate
+			}, () => {
+				this.fetchGames();
 			});
 		}
 	}
@@ -61,7 +89,9 @@ class App extends Component {
 							handleDateChange={this.handleDateChange} />
 					</div>
 					<div className="gamesWrapper">
-						<GamesContainer />
+						<GamesContainer
+							date={this.state.date}
+							games={this.state.games} />
 					</div>
 				</div>
 			</div>
