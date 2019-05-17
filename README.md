@@ -2,7 +2,7 @@
 
 Google Chrome extension for viewing info about the day's MLB games in a popup!
 
-![Extension preview](/preview.png)
+![Extension preview](/previewExt.png)
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
