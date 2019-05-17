@@ -36,6 +36,10 @@ class App extends Component {
 
 	componentDidMount() {
 		this.fetchGames();
+		setInterval(() => {
+			this.fetchGames();
+			console.log('updating');
+		}, 1000 * 15);
 	}
 
 	fetchGames() {
