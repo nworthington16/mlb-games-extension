@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './../style/Game.css';
 import Logos from './Logos';
+import Bases from './Bases';
 
 const gameStates = {
     PRE: "pre",
@@ -99,9 +100,8 @@ class Game extends Component {
                     }
                     {
                         this.state.status === gameStates.IP &&
-                        <div>
-                            In progress
-                        </div>
+                        <Bases />
+                        
                     }
                     {
                         this.state.status === gameStates.DLY &&

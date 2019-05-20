@@ -1,0 +1,24 @@
+.bases {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.base {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border: 1px solid black;
+    transform: rotate(45deg);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.active {
+    background-color: #44bb44;
+}

@@ -13,11 +13,13 @@ const modes = {
 	DARK: "dark",
 	LIGHT: "light"
 };
-
 const views = {
 	GAMES: "games",
 	SETTINGS: "settings"
 };
+
+// interval for updating game data (in seconds)
+const INTERVAL = 15;
 
 class App extends Component {
 	constructor(props) {
@@ -36,14 +38,18 @@ class App extends Component {
 
 	componentDidMount() {
 		this.fetchGames();
-		setInterval(() => {
+		this.apiInterval = setInterval(() => {
 			this.fetchGames();
 			console.log('updating');
-		}, 1000 * 15);
+		}, 1000 * INTERVAL);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.apiInterval);
 	}
 
 	fetchGames() {
-		let currDate = `${this.formatDate(this.state.date)}`;
+		let currDate = this.formatDate(this.state.date);
 		fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1,51&date=${currDate}`)
 			.then(res => res.json())
 			.then(json => {
