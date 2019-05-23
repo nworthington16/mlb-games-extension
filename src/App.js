@@ -4,10 +4,12 @@ import DatePicker from './components/DatePicker';
 import GamesContainer from './components/GamesContainer'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faChevronLeft, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faChevronRight);
 library.add(faChevronLeft);
+library.add(faChevronUp);
+library.add(faChevronDown);
 
 const modes = {
 	DARK: "dark",
@@ -38,9 +40,17 @@ class App extends Component {
 
 	componentDidMount() {
 		this.fetchGames();
-		this.apiInterval = setInterval(() => {
-			this.fetchGames();
+		this.apiInterval = setInterval(async () => {
 			console.log('updating');
+			this.fetchGames();
+			// let currDate = this.formatDate(this.state.date);
+			// let res = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1,51&date=${currDate}`);
+			// let json = await res.json();
+			// this.setState({
+			// 	games: json.dates[0].games
+			// }, () => {
+			// 	console.log('state updated');
+			// });
 		}, 1000 * INTERVAL);
 	}
 
@@ -56,7 +66,8 @@ class App extends Component {
 				this.setState({
 					games: json.dates[0].games
 				});
-			});
+			})
+			.catch(err => console.error(err));
 	}
 
 	formatDate(date) {

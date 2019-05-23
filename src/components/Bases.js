@@ -3,10 +3,11 @@ import './../style/Bases.css';
 
 class Bases extends Component {
     render() {
+        // console.log(this.props.basesState);
         return (
             <div className="bases">
                 <div className="row">
-                    <div className="base active"></div>
+                    <div className="base base-active"></div>
                 </div>
                 <div className="row">
                     <div className="base"></div>

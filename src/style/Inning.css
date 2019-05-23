@@ -1,0 +1,12 @@
+.inning {
+    display: flex;
+    flex-direction: column;
+}
+
+.inning-icon {
+    height: 10px;
+}
+
+.inning-active {
+    color: #44bb44;
+}

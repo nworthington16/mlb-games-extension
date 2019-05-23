@@ -24,3 +24,9 @@
 .final {
     color: #44bb44;
 }
+
+.ip-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
