@@ -3,14 +3,45 @@ import { Form } from 'react-bootstrap';
 import 'react-dropdown/style.css';
 import '../style/TeamPicker.css';
 
+const teams = [
+    'Arizona Diamondbacks',
+    'Atlanta Braves',
+    'Baltimore Orioles',
+    'Boston Red Sox',
+    'Chicago White Sox',
+    'Chicago Cubs',
+    'Cincinnati Reds',
+    'Cleveland Indians',
+    'Colorado Rockies',
+    'Detroit Tigers',
+    'Houston Astros',
+    'Kansas City Royals',
+    'Los Angeles Angels',
+    'Los Angeles Dodgers',
+    'Miami Marlins',
+    'Milwaukee Brewers',
+    'Minnesota Twins',
+    'New York Yankees',
+    'New York Mets',
+    'Oakland Athletics',
+    'Philadelphia Phillies',
+    'Pittsburgh Pirates',
+    'San Diego Padres',
+    'San Francisco Giants',
+    'Seattle Mariners',
+    'St. Louis Cardinals',
+    'Tampa Bay Rays',
+    'Texas Rangers',
+    'Toronto Blue Jays',
+    'Washington Nationals'
+];
+
 class TeamPicker extends Component {
     handleChange(e) {
-        console.log(e.target.value);
         localStorage.setItem('favorite-team', e.target.value);
     }
 
     render() {
-        const teams = ['Baltimore Orioles', 'Atlanta Braves', 'NY Yankees'];
         return (
             <div className='team-picker'>
                 <div>Favorite Team</div>
