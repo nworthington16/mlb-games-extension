@@ -1,0 +1,9 @@
+.team-picker {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around
+}
+
+.team-dropdown {
+    height: 10px;
+}

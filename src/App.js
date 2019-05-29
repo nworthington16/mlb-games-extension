@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import DatePicker from './components/DatePicker';
 import GamesContainer from './components/GamesContainer'
+import TeamPicker from './components/TeamPicker';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronRight, faChevronLeft, faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons'
@@ -40,17 +41,9 @@ class App extends Component {
 
 	componentDidMount() {
 		this.fetchGames();
-		this.apiInterval = setInterval(async () => {
+		this.apiInterval = setInterval(() => {
 			console.log('updating');
 			this.fetchGames();
-			// let currDate = this.formatDate(this.state.date);
-			// let res = await fetch(`https://statsapi.mlb.com/api/v1/schedule?sportId=1,51&date=${currDate}`);
-			// let json = await res.json();
-			// this.setState({
-			// 	games: json.dates[0].games
-			// }, () => {
-			// 	console.log('state updated');
-			// });
 		}, 1000 * INTERVAL);
 	}
 
@@ -108,6 +101,9 @@ class App extends Component {
 						<DatePicker
 							date={this.state.date}
 							handleDateChange={this.handleDateChange} />
+					</div>
+					<div className="favTeamWrapper">
+						<TeamPicker />
 					</div>
 					<div className="gamesWrapper">
 						<GamesContainer

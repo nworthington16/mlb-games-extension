@@ -8,5 +8,9 @@
 }
 
 .inning-active {
-    color: #44bb44;
+    color: #ccc;
+}
+
+.inning-inactive {
+    color: #2c2c46;
 }

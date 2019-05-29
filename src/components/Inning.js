@@ -6,8 +6,8 @@ import '../style/Inning.css'
 class Inning extends Component {
 
     render() {
-        let topClass = this.props.half === 'top' ? 'inning-active' : '';
-        let bottomClass = this.props.half === 'bottom' ? 'inning-active' : '';
+        let topClass = this.props.half === 'top' ? 'inning-active' : 'inning-inactive';
+        let bottomClass = this.props.half === 'bottom' ? 'inning-active' : 'inning-inactive';
         return (
             <div className="inning">
                 <FontAwesomeIcon
